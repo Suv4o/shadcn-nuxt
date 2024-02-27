@@ -18,15 +18,6 @@ const accordionItems = [
 
 <template>
     <div class="container">
-        <Carousel>
-            <CarouselContent>
-                <CarouselItem>1</CarouselItem>
-                <CarouselItem>2</CarouselItem>
-                <CarouselItem>3</CarouselItem>
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-        </Carousel>
         <Table>
             <TableCaption>A list of your recent invoices.</TableCaption>
             <TableHeader>
@@ -74,5 +65,25 @@ const accordionItems = [
             <TabsContent value="account">Make changes to your account here.</TabsContent>
             <TabsContent value="password">Change your password here.</TabsContent>
         </Tabs>
+        <Carousel
+            class="relative w-full max-w-sm mx-auto"
+            :opts="{
+                align: 'start',
+            }"
+        >
+            <CarouselContent>
+                <CarouselItem v-for="(_, index) in 5" :key="index" class="md:basis-1/2 lg:basis-1/3">
+                    <div class="p-1">
+                        <Card>
+                            <CardContent class="flex aspect-square items-center justify-center p-6">
+                                <span class="text-3xl font-semibold">{{ index + 1 }}</span>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+        </Carousel>
     </div>
 </template>
